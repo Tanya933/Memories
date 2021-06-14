@@ -20,10 +20,10 @@ app.get('/',(req,res) =>{
 })
 
 //mongoose setup
-//const CONNECTION_URL = 'mongodb+srv://idontcare:idontcare123@cluster0.kmc8k.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
 const PORT = process.env.PORT || 5000 ;         //process.env.PORT is automatically invoked by heroku
 
-mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true , useUnifiedTopology:true})
+mongoose.connect(process.env.CONNECTION_URL, {useNewUrlParser: true ,   useCreateIndex: true,useUnifiedTopology:true})
     .then(() => app.listen( PORT, () => console.log(`Server is running on port ${PORT}`) ) )
     .catch( ( error ) => console.log(error.message));
 
